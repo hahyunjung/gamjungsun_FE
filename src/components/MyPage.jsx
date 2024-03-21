@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MyPage.css';
-
+//fff
 const stars = [
   { id: 1, top: '130%', left: '20%' },
   { id: 2, top: '190%', left: '60%' },
