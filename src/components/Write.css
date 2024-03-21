@@ -1,0 +1,196 @@
+.write-container {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 15, 21, 1) 0%,
+    rgba(23, 22, 28, 1) 46.39996290206909%,
+    rgba(46, 43, 50, 1) 76.39996409416199%,
+    rgba(77, 69, 64, 1) 100%
+  );
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.logo {
+  color: white;
+  text-align: left;
+  font-family: "Grandiflora One", cursive;
+  padding:10px;
+  font-size: 40px;
+  font-weight: 500;
+  position: relative;
+  width: 237px;
+  height: 51px;
+
+}
+
+.publish-button {
+  background: rgba(179, 59, 236, 0);
+  border-width: 2px;
+  border-style: solid;
+  /* border-image: linear-gradient(
+    180deg,
+    rgba(159, 184, 222, 1) 0%,
+    rgba(215, 116, 205, 1) 100%
+  ); */
+  border: none;
+  color:aliceblue;
+  font-size: large;
+  border-image-slice: 1;
+  width: 100px;
+  height: 50px;
+  position: relative;
+  font-family: "Diphylleia", serif;
+
+}
+
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px; /* 폼과 네비게이션 바 간의 간격 조절 */
+}
+
+.title-input {
+  width: 80%; /* 폼 사이즈 조절 */
+  padding:  15px 10px 25px; /* 위 15px, 좌우 10px, 아래 5px */
+  margin-bottom: 20px;
+  font-size: 40px;
+  border: none; /* 테두리 제거 */
+  border-bottom: 1px solid #ccc; /* 밑에 선만 보이게 함 */
+  outline: none; /* 포커스 시 테두리 제거 */
+  color: white;
+  background-color: transparent; /* 폼 내부 색을 투명으로 설정 */
+
+}
+
+
+
+.content-input {
+  width: 80%; /* 폼 사이즈 조절 */
+  height: 300px; /* 내용 입력란의 높이 */
+  padding: 60px;
+  font-size: 21px;
+  color: white;
+  border: none; /* 모든 테두리 제거 */
+  outline: none; /* 포커스 시 테두리 제거 */
+  background-color: transparent; /* 폼 내부 색을 투명으로 설정 */
+}
+
+.title-input::placeholder {
+  color: white; /* placeholder의 글자색을 흰색으로 설정 */
+  font-family: "Diphylleia", serif;
+}
+
+.content-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);  /* placeholder의 글자색을 흰색으로 설정 */
+  font-family: "Diphylleia", serif;
+}
+
+/*발행 모달창*/
+/* Write.css */
+
+/* 기존 CSS 코드 */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 30px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0,0.9); /* 검은색 반투명 배경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: black;
+  color:white;
+  padding: 20px;
+  border-radius: 5px;
+  animation: fadeIn 0.5s ease; /* fade-in 애니메이션 */
+}
+
+.modal-content p{
+  font-family: "Diphylleia", serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confirm-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 추가한 스타일 */
+.fade-in {
+  animation: fadeIn 1s ease;
+}
+
+
+
+
+.confirm-button {
+  background-color: #2E2B32; /* 배경색 */
+  color: white; /* 텍스트 색상 */
+  padding: 10px 20px; /* 내부 여백 */
+  border: none; /* 테두리 제거 */
+  border-radius: 5px; /* 테두리 반경 */
+  cursor: pointer; /* 커서 스타일 변경 */
+  font-size: 16px; /* 글꼴 크기 */
+  margin-top: 20px; /* 위쪽 여백 추가 */
+}
+
+.confirm-button:hover {
+  background-color: #2E2B32; /* 마우스 호버 시 배경색 변경 */
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+  .write-container {
+    padding: 10px;
+  }
+
+  .emotion-line {
+    font-size: 20px;
+  }
+
+  .publish-button {
+    padding: 8px 16px;
+  }
+
+  .title-input,
+  .content-input {
+    width: 90%; /* 작은 화면에서 폼 너비 조정 */
+  }
+}
+
+
+
