@@ -80,7 +80,7 @@ body{
   height: 200px; /* 원하는 높이로 조정 */
   border-radius: 50%;
   background-color: gray;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .profile-info {
@@ -90,13 +90,22 @@ body{
 }
 
 .profile-info h2 {
-  margin-bottom:20px;
+  margin-bottom:5px;
   font-family: "Gowun Dodum", sans-serif;
 }
 
 .profile-info p {
   margin: 0; /* 기본 마진 제거 */
   font-family: "Gowun Dodum", sans-serif;
+}
+
+.edit-btn{
+ color:white;
+ text-decoration: none;
+ margin:0px;
+ border: 1.5px solid white; 
+ padding:4px;
+ 
 }
 
 .divider-line {

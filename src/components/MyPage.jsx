@@ -81,10 +81,12 @@ const MyPage = () => {
       </nav>
       <div className="profile-section">
         <div className="profile-image"></div>
+        <a className='edit-btn' href="#">수정</a>
         <div className="profile-info">
           <h2>하현정</h2>
           <p>안녕하세요. 매일 일기쓰는 사람입니다.</p>
         </div>
+        
       </div>
       <hr className="divider-line" />
       <div className="star-container">
