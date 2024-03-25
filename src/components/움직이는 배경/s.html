@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Div</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+  }
+  #container {
+    width: 200%;
+    height: 200%;
+    position: relative;
+  }
+  #background {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(255, 0, 0, 0.5); /* 배경색은 여기서 수정 가능 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <!-- Content goes here -->
+</div>
+<div id="background"></div>
+
+<script>
+  // JavaScript로 background div를 container 내부에 추가하고 스크롤 위치를 조정
+  const container = document.getElementById('container');
+  const background = document.getElementById('background');
+  container.appendChild(background);
+
+  // 스크롤 위치를 중앙으로 조정하는 함수
+  function adjustScrollPosition() {
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    const scrollLeft = (containerWidth - windowWidth) / 4;
+    const scrollTop = (containerHeight - windowHeight) / 4;
+
+    window.scrollTo(scrollLeft, scrollTop);
+  }
+
+  // 페이지 로드 시 스크롤 위치를 중앙으로 조정
+  window.onload = adjustScrollPosition;
+
+  // 윈도우 크기가 변경될 때마다 스크롤 위치를 중앙으로 조정
+  window.onresize = adjustScrollPosition;
+</script>
+
+</body>
+</html>

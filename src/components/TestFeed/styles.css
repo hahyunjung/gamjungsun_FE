@@ -1,0 +1,19 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  background-image: url(images/KakaoTalk_Photo_2024-03-19-23-54-04.jpeg);
+  background-repeat: repeat;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
