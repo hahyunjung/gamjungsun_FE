@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function setCanvasSize() {
     canvas.width = container.offsetWidth;
     canvas.height = container.offsetHeight;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    console.log(canvas.width);
+    console.log(canvas.height)
   }
 
   // 랜덤 좌표 생성, stars배열에 추가, 좌표에 별 그리기
@@ -19,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
     stars = []; // 별들의 좌표를 저장할 배열
     let j = 0.1
     for (let i = 0; i < numStars; i++) {
-      let x = (Math.random() * container.offsetWidth * 0.4) + container.offsetWidth * 0.05;
-      let y = (Math.random() * container.offsetHeight * 0.3) + container.offsetHeight * 0.1;
-
+      let x = (Math.random() * container.offsetWidth*0.8+container.offsetWidth*0.1); 
+      let y = (Math.random() * container.offsetHeight*0.8+container.offsetHeight*0.1);
+      console.log(x, y)
       const size = Math.random() * 3 + 3; // 크기를 랜덤하게 설정
       drawStar(x, y, size); // 별 그리기
       stars.push({ x, y }); // 별의 좌표를 배열에 추가
