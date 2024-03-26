@@ -72,8 +72,38 @@ const MyPage = () => {
     setDisplayText('갤러리 아이콘입니다');
     setActiveButton('gallery');
     const canvas = document.getElementById("constellations");
-    const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (canvas) { // 수정: canvas 요소의 존재 여부 확인
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  };
+
+  const getDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const generateGalleryItems = () => {
+    const items = [];
+    const numGalleryItems = 32;
+    for (let i = 0; i < numGalleryItems; i++){
+      items.push(
+        <div key={i} className="gallery-item">
+          <div className="header">
+            <p className="date">{getDate()}</p>
+            <p className="feeling">행복</p>
+          </div>
+          <div className="content">
+            <p>글 {i + 1}입니다.
+            오늘의 기분은 정말 행복합니다.</p>
+          </div>
+        </div>
+      );
+    }
+    return items;
   };
 
   return (
@@ -117,6 +147,13 @@ const MyPage = () => {
       {displayText && <p>{displayText}</p>}
       <div id="star-container" className="star-container">
         {activeButton === 'constellation' && <canvas id="constellations" className="canvas"></canvas>}
+      </div>
+      <div className="gallery-container">
+        {activeButton === 'gallery' && (
+          <div className="gallery-grid">
+            {generateGalleryItems()}
+          </div>
+        )}
       </div>
     </div>
   );
