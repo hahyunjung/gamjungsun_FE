@@ -114,45 +114,40 @@ body{
   margin: 60px 0px; /* 선의 위 아래 여백 조정 */
 }
 
-.star {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background-color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-top: 90px;
-  z-index: 1;
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 
-
-.modal {
-  position: fixed;
-  background-color: white(0, 0, 0, 0.5);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  z-index: 5;
-}
-
-.modal p {
-  margin: 0;
-}
-
-.modal button {
-  background-color: #333;
-  color: #fff;
+.icon-button {
+  background-color: transparent;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
+  margin: 0 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  
 }
 
-.lines {
-  position: absolute;
-  z-index: 0;
+.icon-button.active {
+  border: 2.5px solid white; /* 클릭한 버튼의 테두리 두께 */
 }
 
-.star-container {
-  margin-bottom: 20vh; /* 원하는 만큼의 공간을 확보하는 값으로 조정합니다. */
+
+.icon-button img {
+  width: 33px; /* Adjust size as needed */
+  height: 33px; /* Adjust size as needed */
+}
+
+.star-container{
+  height: 100%;
+  margin: 0;
+  overflow:scroll;
+}
+
+.canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+  
 }
