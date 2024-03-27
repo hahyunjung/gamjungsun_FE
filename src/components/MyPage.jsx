@@ -158,12 +158,17 @@ const MyPage = () => {
           </ul>
         </div>
       </nav>
+      <div className="profile-info">
+          <h2>하현정의 공간</h2>
+   
+        </div>
       <div className="profile-section">
         <div className="profile-image-follower">
           <div className="profile-image-edit">
         <img src="김수현3.jpeg" className="profile-image"/>
         <a className='edit-btn' href="#">수정</a>
         </div>
+        
         <div className="numitem">게시물 5</div>
         <div className="followers-info">
            
@@ -172,11 +177,6 @@ const MyPage = () => {
         </div>
         </div>
        
-        <div className="profile-info">
-          <h2>하현정</h2>
-          <p>안녕하세요. 매일 일기쓰는 사람입니다.</p>
-          
-        </div>
       </div>
 
          {/* 팔로워 목록 모달 */}
@@ -184,34 +184,38 @@ const MyPage = () => {
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={handleFollowersModalClose}>&times;</span>
-            <h2>팔로워 목록</h2>
-            <ul>
-              <li>팔로워 1</li>
-              <li>팔로워 2</li>
-              {/* 여기에 동적으로 팔로워 목록을 보여줄 수 있습니다. */}
-            </ul>
+            <h2 className="modal-title">팔로워</h2>
+            <hr className="friend-divider" />
+            <div className="friend-list">
+              {following.map((followed, index) => (
+                <div key={index} className="friend-item">
+                  <img src="/김수현1.jpeg" alt="프로필 사진" className="friend-profile" />
+                  <p className="friend-name">{followed.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
 
       {/* 팔로잉 목록 모달 */}
-{followingModalOpen && (
-  <div className="modal">
-    <div className="modal-content">
-      <span className="close" onClick={handleFollowingModalClose}>&times;</span>
-      <h2 className="modal-title">팔로워</h2>
-      <hr className="following-divider" />
-      <div className="following-list">
-        {following.map((followed, index) => (
-          <div key={index} className="following-item">
-            <img src="/김수현1.jpeg" alt="프로필 사진" className="following-profile" />
-            <p className="following-name">{followed.name}</p>
+      {followingModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={handleFollowingModalClose}>&times;</span>
+            <h2 className="modal-title">팔로워</h2>
+            <hr className="friend-divider" />
+            <div className="friend-list">
+              {following.map((followed, index) => (
+                <div key={index} className="friend-item">
+                  <img src="/김수현1.jpeg" alt="프로필 사진" className="friend-profile" />
+                  <p className="friend-name">{followed.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
+        </div>
+      )}
 
       <hr className="divider-line" />
       <div className="button-container">
