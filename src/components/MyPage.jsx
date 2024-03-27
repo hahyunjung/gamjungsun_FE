@@ -4,7 +4,24 @@ import './MyPage.css';
 const MyPage = () => {
   const [displayText, setDisplayText] = useState('');
   const [activeButton, setActiveButton] = useState(null);
+  const [followersModalOpen, setFollowersModalOpen] = useState(false);
+  const [followingModalOpen, setFollowingModalOpen] = useState(false); 
   const numStars = 5;
+  const numFollowers = 100;
+  const numFollowings = 200;
+  const [following, setFollowing] = useState([
+    { id: 1, name: '이름 1' },
+    { id: 2, name: '이름 2' },
+    { id: 3, name: '이름 3' },
+    { id: 4, name: '이름 4' },
+    { id: 5, name: '이름 5' },
+    { id: 6, name: '이름 6' },
+    { id: 7, name: '이름 7' },
+    { id: 8, name: '이름 8' },
+    { id: 9, name: '이름 9' },
+    // 여기에 추가적인 팔로잉 목록 데이터를 추가할 수 있습니다.
+  ]);
+
 
   const drawStar = (ctx, x, y, size) => {
     ctx.fillStyle = "#fff";
@@ -58,6 +75,24 @@ const MyPage = () => {
     }
   };
 
+  const handleFollowersClick = () => {
+    setFollowersModalOpen(true);
+   
+  };
+
+  const handleFollowersModalClose = () => {
+    setFollowersModalOpen(false);
+  };
+
+  const handleFollowingClick = () => {
+    setFollowingModalOpen(true); 
+  };
+
+
+  const handleFollowingModalClose = () => {
+    setFollowingModalOpen(false);
+  };
+
   useEffect(() => {
     drawConstellations();
   }, []);
@@ -67,6 +102,8 @@ const MyPage = () => {
     setActiveButton('constellation');
     drawConstellations();
   };
+
+
 
   const handleGalleryClick = () => {
     setDisplayText('갤러리 아이콘입니다');
@@ -122,13 +159,60 @@ const MyPage = () => {
         </div>
       </nav>
       <div className="profile-section">
-        <div className="profile-image"></div>
+        <div className="profile-image-follower">
+          <div className="profile-image-edit">
+        <img src="김수현3.jpeg" className="profile-image"/>
         <a className='edit-btn' href="#">수정</a>
+        </div>
+        <div className="numitem">게시물 5</div>
+        <div className="followers-info">
+           
+            <button className="followers-button" onClick={handleFollowersClick}>팔로우 {numFollowers}</button>
+            <button className="following-button" onClick={handleFollowingClick}>팔로워  {numFollowings}</button> 
+        </div>
+        </div>
+       
         <div className="profile-info">
           <h2>하현정</h2>
           <p>안녕하세요. 매일 일기쓰는 사람입니다.</p>
+          
         </div>
       </div>
+
+         {/* 팔로워 목록 모달 */}
+         {followersModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={handleFollowersModalClose}>&times;</span>
+            <h2>팔로워 목록</h2>
+            <ul>
+              <li>팔로워 1</li>
+              <li>팔로워 2</li>
+              {/* 여기에 동적으로 팔로워 목록을 보여줄 수 있습니다. */}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* 팔로잉 목록 모달 */}
+{followingModalOpen && (
+  <div className="modal">
+    <div className="modal-content">
+      <span className="close" onClick={handleFollowingModalClose}>&times;</span>
+      <h2 className="modal-title">팔로워</h2>
+      <hr className="following-divider" />
+      <div className="following-list">
+        {following.map((followed, index) => (
+          <div key={index} className="following-item">
+            <img src="/김수현1.jpeg" alt="프로필 사진" className="following-profile" />
+            <p className="following-name">{followed.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
       <hr className="divider-line" />
       <div className="button-container">
         <button 
