@@ -22,6 +22,7 @@ const MyPage = () => {
     // 여기에 추가적인 팔로잉 목록 데이터를 추가할 수 있습니다.
   ]);
 
+  const emotions = ['기쁨', '슬픔', '놀람', '분노', '공포', '혐오', '중립'];
 
   const drawStar = (ctx, x, y, size) => {
     ctx.fillStyle = "#fff";
@@ -103,6 +104,8 @@ const MyPage = () => {
     drawConstellations();
   };
 
+  
+
 
 
   const handleGalleryClick = () => {
@@ -113,6 +116,7 @@ const MyPage = () => {
       const ctx = canvas.getContext("2d");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
+   
   };
 
   const getDate = () => {
@@ -135,7 +139,9 @@ const MyPage = () => {
           </div>
           <div className="content">
             <p>글 {i + 1}입니다.
-            오늘의 기분은 정말 행복합니다.</p>
+            오늘의 기분은 정말 행복합니다. 
+            그리고 어쩌고저쩌고 그렇습니다 
+            어쩌고 저쩌고 ~~~</p>
           </div>
         </div>
       );
@@ -158,6 +164,8 @@ const MyPage = () => {
           </ul>
         </div>
       </nav>
+
+      
       <div className="profile-info">
           <h2>하현정의 공간</h2>
    
@@ -231,7 +239,19 @@ const MyPage = () => {
         >
           <img src="/gallery (2).png" alt="Gallery Icon" />
         </button>
+        
       </div>
+      {/* Nav 바 */}
+{activeButton === 'constellation' && (
+  <div className="nav-bar">
+    <ul>
+      {emotions.map((emotion, index) => (
+        <li key={index}><a href="#">{emotion}</a></li>
+      ))}
+    </ul>
+  </div>
+)}
+
       {displayText && <p>{displayText}</p>}
       <div id="star-container" className="star-container">
         {activeButton === 'constellation' && <canvas id="constellations" className="canvas"></canvas>}
@@ -243,6 +263,8 @@ const MyPage = () => {
           </div>
         )}
       </div>
+
+      
     </div>
   );
 }
